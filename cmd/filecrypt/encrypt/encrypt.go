@@ -12,85 +12,81 @@ import (
 	"golang.org/x/crypto/pbkdf2"
 )
 
-func Encrypt(source string, password []byte) {
+func Encrypt(source string, password []byte) error {
 	srcFile, err := os.Open(source)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	defer srcFile.Close()
 	plain, err := io.ReadAll(srcFile)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	key := password
 	nonce := make([]byte, 12)
 	if _, err := io.ReadFull(rand.Reader, nonce); err != nil {
-		panic(err.Error())
+		return err
 	}
-	dk := pbkdf2.Key(key, nonce, 4096, 32, sha1.New())
+	dk := pbkdf2.Key(key, nonce, 4096, 32, sha1.New)
 
 	block, err := aes.NewCipher(dk)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	aesgcm, err := cipher.NewGCM(block)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	cipher := aesgcm.Seal(nil, nonce, plain, nil)
 	cipher = append(cipher, nonce...)
 
 	dstFile, err := os.Create(source)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	defer dstFile.Close()
 
 	_, err = dstFile.Write(cipher)
-	if err != nil {
-		panic(err.Error())
-	}
+	return err
 }
 
-func Decrypt(source string, password []byte) {
+func Decrypt(source string, password []byte) error {
 	srcFile, err := os.Open(source)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	defer srcFile.Close()
 	cipherText, err := io.ReadAll(srcFile)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	key := password
 	salt := cipherText[len(cipherText)-12:]
 	str := hex.EncodeToString(salt)
 	nonce, err := hex.DecodeString(str)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
-	dk := pbkdf2.Key(key, nonce, 4096, 32, sha1.New())
+	dk := pbkdf2.Key(key, nonce, 4096, 32, sha1.New)
 
 	block, err := aes.NewCipher(dk)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 
 	aesgcm, err := cipher.NewGCM(block)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	plain, err := aesgcm.Open(nil, nonce, cipherText[:len(cipherText)-12], nil)
 
 	dstFile, err := os.Create(source)
 	if err != nil {
-		panic(err.Error())
+		return err
 	}
 	defer dstFile.Close()
 
 	_, err = dstFile.Write(plain)
-	if err != nil {
-		panic(err.Error())
-	}
+	return err
 }

@@ -45,7 +45,10 @@ func encryptHandle() {
 
 	password := getPassword()
 	fmt.Println("encrypting")
-	encrypt.Encrypt(file, password)
+	err := encrypt.Encrypt(file, password)
+	if err != nil {
+		panic(err.Error())
+	}
 	fmt.Println("file successfully encrypt")
 }
 func decryptHandle() {
@@ -60,7 +63,10 @@ func decryptHandle() {
 
 	password := getPassword()
 	fmt.Println("decrypting")
-	encrypt.Decrypt(file, password)
+	err := encrypt.Decrypt(file, password)
+	if err != nil {
+		panic(err.Error())
+	}
 	fmt.Println("file successfully encrypt")
 }
 
@@ -68,7 +74,7 @@ func getPassword() []byte {
 	fmt.Print("Enter password")
 	password, _ := term.ReadPassword(0)
 	fmt.Println("Confirm password: ")
-	confirm, _ := term.ReadPassword(0)
+	confirm, _ := term.ReadPassword(1)
 	if !validatePassword(password, confirm) {
 		fmt.Println("Passwords do not match")
 		return getPassword()
