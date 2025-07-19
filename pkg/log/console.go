@@ -3,7 +3,6 @@ package log
 import (
 	"fmt"
 	"strings"
-	"time"
 )
 
 type consoleLogger struct {
@@ -14,20 +13,42 @@ type consoleLogger struct {
 }
 
 func (c *consoleLogger) NewLog(logType LogType, message string) error {
-	var sbd strings.Builder
-	info := Log{log: logType, timestamp: time.Now(), message: message}
+	var bd strings.Builder
+	entry := NewLog(logType, message)
+	// write the timestamp of the log
 	if c.hasTimestamp {
-		_, err := sbd.WriteString(fmt.Sprintf("[%s] ", info.Timestamp()))
+		_, err := bd.WriteString(fmt.Sprintf("[%s] ", entry.Timestamp()))
 		if err != nil {
 			return err
 		}
 	}
-	sbd.WriteString(fmt.Sprintf("%s\t: %s\n", c.colorStringFromType(logType), info.message))
-	fmt.Print(sbd.String())
+
+	// write the log type
+	_, err := bd.WriteString(fmt.Sprintf("%s\t: ", c.logTypeWithColor(logType)))
+	if err != nil {
+		return err
+	}
+	// write the file path of the error
+	if c.hasFilepath {
+		_, err := bd.WriteString(fmt.Sprintf("[%s] ", entry.file))
+		if err != nil {
+			return err
+		}
+	}
+	// write the methods and the line that was called before the error
+	if c.hasMethod {
+			_, err := bd.WriteString(fmt.Sprintf("[%s:%d:%d] ", entry.funcName, entry.line, entry.column))
+		if err != nil {
+			return err
+		}
+	}
+
+	bd.WriteString(fmt.Sprintf(": %s\n",entry.message))
+	fmt.Print(bd.String())
 	return nil
 }
 
-func (c *consoleLogger) colorStringFromType(log LogType) string {
+func (c *consoleLogger) logTypeWithColor(log LogType) string {
 	switch log {
 	case FATAL:
 		return fmt.Sprintf(clrFatal, log)
@@ -37,8 +58,8 @@ func (c *consoleLogger) colorStringFromType(log LogType) string {
 		return fmt.Sprintf(clrWarning, log)
 	case INFO:
 		return fmt.Sprintf(clrInfo, log)
-	case VERBOSE:
-		return fmt.Sprintf(clrVerbose, log)
+	case DEBUG:
+		return fmt.Sprintf(clrDebug, log)
 	default:
 		return fmt.Sprintf(clrNone, log)
 	}
@@ -50,5 +71,5 @@ const (
 	clrError   = "\033[31m%s\033[0m"   // Red
 	clrWarning = "\033[33m%s\033[0m"   // Yellow
 	clrInfo    = "\033[34m%s\033[0m"   // Blue
-	clrVerbose = "\033[35m%s\033[0m"   // Magenta
+	clrDebug = "\033[35m%s\033[0m"   // Magenta
 )

@@ -1,17 +1,29 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/Long-Software/lark/cmd/file-drive/p2p"
 	"github.com/Long-Software/lark/cmd/file-drive/utils"
 	"github.com/Long-Software/lark/pkg/log"
 )
 
 func main() {
-	ttr := p2p.NewTCPTransport(":8080")
+	tcpOpts := p2p.TCPTransportOpts{
+		Addr:    ":3000",
+		Decoder: &p2p.DefaultDecoder{},
+	}
+	ttr := p2p.NewTCPTransport(tcpOpts)
 
+	go func() {
+		for {
+			msg := <-ttr.Consume()
+			utils.Log.NewLog(log.DEBUG, fmt.Sprintf("%+v", msg))
+		}
+	}()
 	err := ttr.Listen()
 	if err != nil {
-		utils.NewLog(log.FATAL, err.Error())
+		utils.Log.NewLog(log.FATAL, err.Error())
 	}
 	select {}
 }

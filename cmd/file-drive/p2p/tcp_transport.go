@@ -1,6 +1,7 @@
 package p2p
 
 import (
+	"errors"
 	"fmt"
 	"net"
 	"sync"
@@ -9,43 +10,32 @@ import (
 	"github.com/Long-Software/lark/pkg/log"
 )
 
-// the remote node over the TCP connection
-type TCPPeer struct {
-	// the connection between the peer
-	conn net.Conn
-
-	// if we send a connection => outbound true else false
-	outbound bool
-}
-
-func NewTCPPeer(conn net.Conn, outbound bool) *TCPPeer {
-	utils.NewLog(log.INFO, fmt.Sprintf("New peer has been created connected to %v with outbound: %v", conn, outbound))
-	return &TCPPeer{
-		conn:     conn,
-		outbound: outbound,
-	}
-}
-
 type TCPTransport struct {
-	addr     string
+	TCPTransportOpts
 	listener net.Listener
+	rpc      chan RPC
 
-	decoder Decoder
-
-	mu    sync.RWMutex // Read and write mutex
-	peers map[net.Addr]Peer
+	mu sync.RWMutex // Read and write mutex
+	// peers map[net.Addr]Peer
 }
 
-func NewTCPTransport(addr string) *TCPTransport {
+func NewTCPTransport(opts TCPTransportOpts) *TCPTransport {
 	return &TCPTransport{
-		addr: addr,
+		TCPTransportOpts: opts,
+		rpc:              make(chan RPC),
 	}
+}
+
+type TCPTransportOpts struct {
+	Addr    string
+	Decoder Decoder
+	OnPeer  func(Peer) error
 }
 
 func (t *TCPTransport) Listen() error {
 	var err error
-	t.listener, err = net.Listen("tcp", t.addr)
-	utils.NewLog(log.INFO, "Start listening")
+	t.listener, err = net.Listen("tcp", t.Addr)
+	utils.Log.NewLog(log.INFO, "Start listening")
 	if err != nil {
 		return err
 	}
@@ -54,33 +44,65 @@ func (t *TCPTransport) Listen() error {
 	return nil
 }
 
+// return a read-only channel from the remote peer
+func (t *TCPTransport) Consume() <-chan RPC {
+	return t.rpc
+}
+
 func (t *TCPTransport) startAccept() {
-	utils.NewLog(log.INFO, "Start Accepting connection")
+	utils.Log.NewLog(log.INFO, "Start Accepting connection")
 	for {
 		conn, err := t.listener.Accept()
 		if err != nil {
-			utils.NewLog(log.ERROR, err.Error())
+			utils.Log.NewLog(log.ERROR, err.Error())
 		}
 		go t.handleConn(conn)
 	}
 }
 
 func (t *TCPTransport) handleConn(conn net.Conn) {
-	utils.NewLog(log.INFO, "Start handling connection")
+	var err error
+	utils.Log.NewLog(log.INFO, "Start handling connection")
 	peer := NewTCPPeer(conn, true)
-	utils.NewLog(log.INFO, fmt.Sprintf("New incoming connection: %v", peer))
-	if err := t.handshake(conn); err != nil {
-		utils.NewLog(log.ERROR, err.Error())
+
+	defer func() {
+		utils.Log.NewLog(log.INFO, fmt.Sprintf("dropping peer connection: %s", err))
+		conn.Close()
+	}()
+
+	if t.OnPeer != nil {
+		if err = t.OnPeer(peer); err != nil {
+			return
+		}
 	}
 
+	utils.Log.NewLog(log.DEBUG, fmt.Sprintf("New incoming connection: %+v", peer))
+	if err := t.handshake(conn); err != nil {
+		conn.Close()
+		utils.Log.NewLog(log.ERROR, err.Error())
+		return
+	}
+
+	// read loop 
+	rpc := RPC{}
 	for {
-		err := t.decoder.Decode(conn, "")
-		if err != nil {
-			utils.NewLog(log.ERROR, err.Error())
+		err := t.Decoder.Decode(conn, &rpc)
+		if errors.Is(err, &net.OpError{}) || err == net.ErrClosed {
+			return
 		}
+		if err != nil {
+			utils.Log.NewLog(log.ERROR, err.Error())
+			continue
+		}
+		rpc.Src = conn.RemoteAddr()
+		t.rpc <- rpc
+		utils.Log.NewLog(log.DEBUG, fmt.Sprintf("message: %+v", t.rpc))
 	}
 }
 
-func (t *TCPTransport) handshake(conn net.Conn) error {
+// returned when the connection failed between the local and the remote node
+var ErrInvalidTCPHandshake = errors.New("Could not establish the handshake")
+
+func (t *TCPTransport) handshake(_ net.Conn) error {
 	return nil
 }

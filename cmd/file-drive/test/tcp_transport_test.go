@@ -8,8 +8,9 @@ import (
 )
 
 func TestTCPTransport(t *testing.T) {
-	listenAddr := ":4000"
-	ttr := p2p.NewTCPTransport(listenAddr)
+	opts := p2p.TCPTransportOpts{
+		Addr: ":4000",
+	}
+	ttr := p2p.NewTCPTransport(opts)
 	assert.Nil(t, ttr.Listen())
-
 }

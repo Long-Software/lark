@@ -4,3 +4,5 @@ run: build
 	@.\bin\fd.exe
 test:
 	@go test ./... -v
+
+.PHONY: test

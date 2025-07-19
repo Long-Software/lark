@@ -20,9 +20,13 @@ type DomainDetail struct {
 
 func main() {
 	lg := log.Logger{
-		HasTimestamp: false,
+		// HasLogFile: true,
+		// LogFilepath: "output.log",
+		HasTimestamp: true,
+		HasFilepath: true,
+		HasMethod: true,
 	}
-	domain := "la.com"
+	domain := "news.cnn.com"
 	details, err := checkDomain(domain)
 	if err != nil {
 		lg.NewLog(log.FATAL, err.Error())

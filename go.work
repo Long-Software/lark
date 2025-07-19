@@ -1,5 +1,9 @@
 go 1.23.2
 
 use (
+	./cmd/domain-checker
+	./cmd/file-drive
 	./cmd/filecrypt
+
+	./pkg/log
 )
