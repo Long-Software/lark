@@ -4,6 +4,9 @@ use (
 	./cmd/domain-checker
 	./cmd/file-drive
 	./cmd/filecrypt
+	./cmd/impz
+	./cmd/search
+	./pkg/dsa
 
 	./pkg/log
 )

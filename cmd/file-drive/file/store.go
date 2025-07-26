@@ -2,11 +2,13 @@ package file
 
 import (
 	"bytes"
+	"fmt"
 	"io"
 	"os"
 )
 
 type StoreOpts struct {
+	Root              string
 	PathTransformFunc PathTransformFunc
 }
 
@@ -15,6 +17,13 @@ type Store struct {
 }
 
 func NewStore(opts StoreOpts) *Store {
+	defaultFolder := "file-network"
+	if opts.PathTransformFunc == nil {
+		opts.PathTransformFunc = DefaultPathTransformFunc
+	}
+	if len(opts.Root) == 0 {
+		opts.Root = defaultFolder
+	}
 	return &Store{
 		StoreOpts: opts,
 	}
@@ -22,13 +31,11 @@ func NewStore(opts StoreOpts) *Store {
 
 func (s *Store) WriteStream(key string, r io.Reader) error {
 	kPath := s.PathTransformFunc(key)
-	if err := os.MkdirAll(kPath.Folder, os.ModePerm); err != nil {
+	if err := os.MkdirAll(s.Path(kPath), os.ModePerm); err != nil {
 		return err
 	}
 
-	filePath := kPath.Path()
-
-	f, err := os.Create(filePath)
+	f, err := os.Create(s.Path(kPath))
 	if err != nil {
 		return err
 	}
@@ -42,7 +49,7 @@ func (s *Store) WriteStream(key string, r io.Reader) error {
 func (s *Store) ReadStream(key string) (io.Reader, error) {
 	kPath := s.PathTransformFunc(key)
 
-	f, err := os.Open(kPath.Path())
+	f, err := os.Open(s.Path(kPath))
 	if err != nil {
 		return nil, err
 	}
@@ -56,12 +63,16 @@ func (s *Store) ReadStream(key string) (io.Reader, error) {
 
 func (s *Store) Delete(key string) error {
 	kPath := s.PathTransformFunc(key)
-	return os.RemoveAll(kPath.Path())
+	return os.RemoveAll(s.Root + "/"+ kPath.Root())
 }
 
 func (s *Store) Has(key string) bool {
 	kPath := s.PathTransformFunc(key)
 
-	_, err := os.Stat(kPath.Path())
+	_, err := os.Stat(kPath.Root())
 	return err == nil
+}
+
+func (s *Store) Path(kPath KeyPath) string {
+	return fmt.Sprintf("%s/%s", s.Root, kPath.Path())
 }
