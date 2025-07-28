@@ -1,0 +1,2093 @@
+{
+  "files": {
+    "cmd\\analyser\\internal\\analyzer\\analyzer.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\analyzer.go",
+      "language": "Go",
+      "size": 2956,
+      "lines": 131,
+      "code_lines": 108,
+      "comment_lines": 4,
+      "blank_lines": 19,
+      "functions": 8,
+      "classes": 4,
+      "complexity": 7,
+      "last_modified": "2025-07-28T22:15:58.5618106+07:00",
+      "imports": [
+        "regexp"
+      ],
+      "exports": [
+        "LanguageAnalyzer",
+        "AnalyzerOpts",
+        "Analyzer",
+        "NewAnalyzer",
+        "TODO",
+        "AnalyzerResult"
+      ],
+      "todos": [
+        {
+          "line": 77,
+          "content": "struct {",
+          "type": "TODO"
+        },
+        {
+          "line": 80,
+          "content": ", FIXME, HACK, BUG, etc.",
+          "type": "TODO"
+        },
+        {
+          "line": 80,
+          "content": ", HACK, BUG, etc.",
+          "type": "FIXME"
+        },
+        {
+          "line": 80,
+          "content": ", BUG, etc.",
+          "type": "HACK"
+        },
+        {
+          "line": 80,
+          "content": ", etc.",
+          "type": "BUG"
+        },
+        {
+          "line": 83,
+          "content": "s(content string) []TODO {",
+          "type": "TODO"
+        },
+        {
+          "line": 84,
+          "content": "s []TODO",
+          "type": "TODO"
+        },
+        {
+          "line": 87,
+          "content": "\":  `(?i)todo:?\\s*(.*)`,",
+          "type": "TODO"
+        },
+        {
+          "line": 88,
+          "content": "\": `(?i)fixme:?\\s*(.*)`,",
+          "type": "FIXME"
+        },
+        {
+          "line": 89,
+          "content": "\":  `(?i)hack:?\\s*(.*)`,",
+          "type": "HACK"
+        },
+        {
+          "line": 90,
+          "content": "\":   `(?i)bug:?\\s*(.*)`,",
+          "type": "BUG"
+        },
+        {
+          "line": 91,
+          "content": "\":  `(?i)note:?\\s*(.*)`,",
+          "type": "NOTE"
+        },
+        {
+          "line": 96,
+          "content": "Type, pattern := range patterns {",
+          "type": "TODO"
+        },
+        {
+          "line": 99,
+          "content": "s = append(todos, TODO{",
+          "type": "TODO"
+        },
+        {
+          "line": 102,
+          "content": "Type,",
+          "type": "TODO"
+        },
+        {
+          "line": 108,
+          "content": "s",
+          "type": "TODO"
+        },
+        {
+          "line": 117,
+          "content": "s      []TODO",
+          "type": "TODO"
+        },
+        {
+          "line": 127,
+          "content": "s:      a.FindTODOs(content),",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 27.1,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\analyzer\\dart_analyzer.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\dart_analyzer.go",
+      "language": "Go",
+      "size": 1436,
+      "lines": 56,
+      "code_lines": 47,
+      "comment_lines": 0,
+      "blank_lines": 9,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 8,
+      "last_modified": "2025-07-28T22:15:08.5125226+07:00",
+      "imports": [
+        "strings"
+      ],
+      "exports": [
+        "DartAnalyzer"
+      ],
+      "todos": [
+        {
+          "line": 32,
+          "content": "s:      res.TODOs,",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 21.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\analyzer\\file.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\file.go",
+      "language": "Go",
+      "size": 1654,
+      "lines": 51,
+      "code_lines": 45,
+      "comment_lines": 0,
+      "blank_lines": 6,
+      "functions": 1,
+      "classes": 3,
+      "complexity": 1,
+      "last_modified": "2025-07-28T22:29:44.9919302+07:00",
+      "imports": [
+        "time"
+      ],
+      "exports": [
+        "FileAnalyzerConfig",
+        "NewDefaultFileAnalyzerConfig",
+        "FileAnalysis",
+        "Issue"
+      ],
+      "todos": [
+        {
+          "line": 38,
+          "content": "s        []TODO         `json:\"todos\"`",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 7.1000000000000005,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\analyzer\\go_analyzer.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\go_analyzer.go",
+      "language": "Go",
+      "size": 2162,
+      "lines": 84,
+      "code_lines": 70,
+      "comment_lines": 2,
+      "blank_lines": 12,
+      "functions": 3,
+      "classes": 1,
+      "complexity": 11,
+      "last_modified": "2025-07-28T22:15:11.5973877+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "GoAnalyzer"
+      ],
+      "todos": [
+        {
+          "line": 32,
+          "content": "s:      res.TODOs,",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 30.4,
+      "issues": [
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 74,
+          "description": "Usage of panic() detected"
+        },
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 79,
+          "description": "Usage of panic() detected"
+        }
+      ],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\analyzer\\javascript_analyzer.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\javascript_analyzer.go",
+      "language": "Go",
+      "size": 2778,
+      "lines": 112,
+      "code_lines": 91,
+      "comment_lines": 3,
+      "blank_lines": 18,
+      "functions": 3,
+      "classes": 1,
+      "complexity": 16,
+      "last_modified": "2025-07-28T22:15:14.5726017+07:00",
+      "imports": [
+        "path/filepath"
+      ],
+      "exports": [
+        "JavaScriptAnalyzer"
+      ],
+      "todos": [
+        {
+          "line": 45,
+          "content": "s:      res.TODOs,",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 43.2,
+      "issues": [
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 28,
+          "description": "Line is 125 characters long (\u003e120)"
+        }
+      ],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\analyzer\\php_analyzer.go": {
+      "path": "cmd\\analyser\\internal\\analyzer\\php_analyzer.go",
+      "language": "Go",
+      "size": 2232,
+      "lines": 89,
+      "code_lines": 73,
+      "comment_lines": 2,
+      "blank_lines": 14,
+      "functions": 3,
+      "classes": 1,
+      "complexity": 13,
+      "last_modified": "2025-07-28T22:26:05.3255694+07:00",
+      "imports": [
+        "strings"
+      ],
+      "exports": [
+        "PHPAnalyzer"
+      ],
+      "todos": [
+        {
+          "line": 32,
+          "content": "s:      res.TODOs,",
+          "type": "TODO"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 34.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\archaeologist\\code_archaeologist.go": {
+      "path": "cmd\\analyser\\internal\\archaeologist\\code_archaeologist.go",
+      "language": "Go",
+      "size": 6932,
+      "lines": 246,
+      "code_lines": 206,
+      "comment_lines": 2,
+      "blank_lines": 38,
+      "functions": 9,
+      "classes": 1,
+      "complexity": 36,
+      "last_modified": "2025-07-28T22:19:15.0899922+07:00",
+      "imports": [
+        "encoding/json"
+      ],
+      "exports": [
+        "CodeArchaeologist",
+        "NewCodeArchaeologist"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 96.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\archaeologist\\statistics.go": {
+      "path": "cmd\\analyser\\internal\\archaeologist\\statistics.go",
+      "language": "Go",
+      "size": 1025,
+      "lines": 25,
+      "code_lines": 21,
+      "comment_lines": 0,
+      "blank_lines": 4,
+      "functions": 0,
+      "classes": 2,
+      "complexity": 1,
+      "last_modified": "2025-07-28T22:19:38.5192907+07:00",
+      "imports": [
+        "github.com/Long-Software/lark/cmd/analyser/internal/hotspot"
+      ],
+      "exports": [
+        "ProjectStatistics",
+        "RefactoringTarget"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.5,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\git\\git_rule.go": {
+      "path": "cmd\\analyser\\internal\\git\\git_rule.go",
+      "language": "Go",
+      "size": 2219,
+      "lines": 107,
+      "code_lines": 79,
+      "comment_lines": 8,
+      "blank_lines": 20,
+      "functions": 4,
+      "classes": 2,
+      "complexity": 15,
+      "last_modified": "2025-07-28T22:27:54.0080992+07:00",
+      "imports": [
+        "bufio"
+      ],
+      "exports": [
+        "GitignoreRule",
+        "GitignoreParser"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 40.7,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\hotspot\\hotspot.go": {
+      "path": "cmd\\analyser\\internal\\hotspot\\hotspot.go",
+      "language": "Go",
+      "size": 284,
+      "lines": 14,
+      "code_lines": 10,
+      "comment_lines": 0,
+      "blank_lines": 4,
+      "functions": 1,
+      "classes": 1,
+      "complexity": 1,
+      "last_modified": "2025-07-28T21:57:06.8942455+07:00",
+      "imports": null,
+      "exports": [
+        "Calculate",
+        "Entry"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 3.4000000000000004,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\internal\\utils\\log.go": {
+      "path": "cmd\\analyser\\internal\\utils\\log.go",
+      "language": "Go",
+      "size": 115,
+      "lines": 8,
+      "code_lines": 5,
+      "comment_lines": 0,
+      "blank_lines": 3,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-28T21:22:18.5609697+07:00",
+      "imports": [
+        "github.com/Long-Software/lark/pkg/log"
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 2.8,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\analyser\\main.go": {
+      "path": "cmd\\analyser\\main.go",
+      "language": "Go",
+      "size": 703,
+      "lines": 32,
+      "code_lines": 23,
+      "comment_lines": 1,
+      "blank_lines": 8,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 9,
+      "last_modified": "2025-07-28T22:19:53.6560099+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": [
+        {
+          "line": 22,
+          "content": "xist(err) {",
+          "type": "NOTE"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 21.2,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\domain-checker\\main.go": {
+      "path": "cmd\\domain-checker\\main.go",
+      "language": "Go",
+      "size": 1385,
+      "lines": 77,
+      "code_lines": 63,
+      "comment_lines": 4,
+      "blank_lines": 10,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 12,
+      "last_modified": "2025-07-16T19:35:20.6891702+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "DomainDetail"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 31.7,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\file\\key_path.go": {
+      "path": "cmd\\file-drive\\file\\key_path.go",
+      "language": "Go",
+      "size": 343,
+      "lines": 24,
+      "code_lines": 19,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 2,
+      "last_modified": "2025-07-25T08:34:49.4321134+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "KeyPath"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 6.4,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\file\\path_transform.go": {
+      "path": "cmd\\file-drive\\file\\path_transform.go",
+      "language": "Go",
+      "size": 641,
+      "lines": 35,
+      "code_lines": 27,
+      "comment_lines": 0,
+      "blank_lines": 8,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 2,
+      "last_modified": "2025-07-19T22:37:43.3668748+07:00",
+      "imports": [
+        "crypto/sha1"
+      ],
+      "exports": [
+        "PathTransformFunc",
+        "CASPathTransformFunc"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 7.5,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\file\\store.go": {
+      "path": "cmd\\file-drive\\file\\store.go",
+      "language": "Go",
+      "size": 1453,
+      "lines": 79,
+      "code_lines": 64,
+      "comment_lines": 0,
+      "blank_lines": 15,
+      "functions": 6,
+      "classes": 2,
+      "complexity": 8,
+      "last_modified": "2025-07-25T09:42:09.3019472+07:00",
+      "imports": [
+        "bytes"
+      ],
+      "exports": [
+        "StoreOpts",
+        "Store",
+        "NewStore"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 23.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\main.go": {
+      "path": "cmd\\file-drive\\main.go",
+      "language": "Go",
+      "size": 562,
+      "lines": 30,
+      "code_lines": 25,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 5,
+      "last_modified": "2025-07-19T12:41:31.4350335+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": [
+        {
+          "line": 21,
+          "content": ", fmt.Sprintf(\"%+v\", msg))",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 13,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\p2p\\encoder.go": {
+      "path": "cmd\\file-drive\\p2p\\encoder.go",
+      "language": "Go",
+      "size": 473,
+      "lines": 29,
+      "code_lines": 22,
+      "comment_lines": 0,
+      "blank_lines": 7,
+      "functions": 2,
+      "classes": 2,
+      "complexity": 2,
+      "last_modified": "2025-07-16T10:32:32.2034828+07:00",
+      "imports": [
+        "encoding/gob"
+      ],
+      "exports": [
+        "Decoder",
+        "GobDecoder",
+        "DefaultDecoder"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 6.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\p2p\\message.go": {
+      "path": "cmd\\file-drive\\p2p\\message.go",
+      "language": "Go",
+      "size": 89,
+      "lines": 9,
+      "code_lines": 6,
+      "comment_lines": 0,
+      "blank_lines": 3,
+      "functions": 0,
+      "classes": 1,
+      "complexity": 1,
+      "last_modified": "2025-07-16T10:32:09.2919622+07:00",
+      "imports": [
+        "net"
+      ],
+      "exports": [
+        "RPC"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 2.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\p2p\\tcp_peer.go": {
+      "path": "cmd\\file-drive\\p2p\\tcp_peer.go",
+      "language": "Go",
+      "size": 684,
+      "lines": 31,
+      "code_lines": 21,
+      "comment_lines": 4,
+      "blank_lines": 6,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 3,
+      "last_modified": "2025-07-16T10:43:05.5218623+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "TCPPeer",
+        "NewTCPPeer"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 9.1,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\p2p\\tcp_transport.go": {
+      "path": "cmd\\file-drive\\p2p\\tcp_transport.go",
+      "language": "Go",
+      "size": 2343,
+      "lines": 109,
+      "code_lines": 87,
+      "comment_lines": 4,
+      "blank_lines": 18,
+      "functions": 6,
+      "classes": 2,
+      "complexity": 14,
+      "last_modified": "2025-07-19T12:51:07.8362887+07:00",
+      "imports": [
+        "errors"
+      ],
+      "exports": [
+        "TCPTransport",
+        "NewTCPTransport",
+        "TCPTransportOpts"
+      ],
+      "todos": [
+        {
+          "line": 79,
+          "content": ", fmt.Sprintf(\"New incoming connection: %+v\", peer))",
+          "type": "BUG"
+        },
+        {
+          "line": 99,
+          "content": ", fmt.Sprintf(\"message: %+v\", t.rpc))",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 38.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\p2p\\transport.go": {
+      "path": "cmd\\file-drive\\p2p\\transport.go",
+      "language": "Go",
+      "size": 227,
+      "lines": 13,
+      "code_lines": 8,
+      "comment_lines": 2,
+      "blank_lines": 3,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 2,
+      "last_modified": "2025-07-16T10:42:31.1537996+07:00",
+      "imports": null,
+      "exports": [
+        "Peer",
+        "Transport"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 5.3,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\test\\store_test.go": {
+      "path": "cmd\\file-drive\\test\\store_test.go",
+      "language": "Go",
+      "size": 1297,
+      "lines": 60,
+      "code_lines": 47,
+      "comment_lines": 4,
+      "blank_lines": 9,
+      "functions": 3,
+      "classes": 0,
+      "complexity": 7,
+      "last_modified": "2025-07-25T09:43:33.1371955+07:00",
+      "imports": [
+        "bytes"
+      ],
+      "exports": [
+        "TestStore",
+        "TestPathTransformFunc",
+        "TestStoreDelete"
+      ],
+      "todos": [
+        {
+          "line": 22,
+          "content": ", data)",
+          "type": "BUG"
+        },
+        {
+          "line": 39,
+          "content": ", kPath.Path())",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 20,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\test\\tcp_transport_test.go": {
+      "path": "cmd\\file-drive\\test\\tcp_transport_test.go",
+      "language": "Go",
+      "size": 298,
+      "lines": 17,
+      "code_lines": 13,
+      "comment_lines": 0,
+      "blank_lines": 4,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-16T19:09:19.2608896+07:00",
+      "imports": [
+        "testing"
+      ],
+      "exports": [
+        "TestTCPTransport"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 3.7,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\file-drive\\utils\\log.go": {
+      "path": "cmd\\file-drive\\utils\\log.go",
+      "language": "Go",
+      "size": 250,
+      "lines": 15,
+      "code_lines": 11,
+      "comment_lines": 0,
+      "blank_lines": 4,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-16T19:08:59.0027433+07:00",
+      "imports": [
+        "github.com/Long-Software/lark/pkg/log"
+      ],
+      "exports": [
+        "NewLog"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 3.5,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\filecrypt\\encrypt\\encrypt.go": {
+      "path": "cmd\\filecrypt\\encrypt\\encrypt.go",
+      "language": "Go",
+      "size": 1760,
+      "lines": 93,
+      "code_lines": 80,
+      "comment_lines": 0,
+      "blank_lines": 13,
+      "functions": 2,
+      "classes": 0,
+      "complexity": 17,
+      "last_modified": "2025-07-15T22:58:01.0617758+07:00",
+      "imports": [
+        "crypto/aes"
+      ],
+      "exports": [
+        "Encrypt",
+        "Decrypt"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 43.3,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\filecrypt\\main.go": {
+      "path": "cmd\\filecrypt\\main.go",
+      "language": "Go",
+      "size": 1796,
+      "lines": 95,
+      "code_lines": 78,
+      "comment_lines": 4,
+      "blank_lines": 13,
+      "functions": 7,
+      "classes": 0,
+      "complexity": 14,
+      "last_modified": "2025-07-15T22:58:01.0627772+07:00",
+      "imports": [
+        "bytes"
+      ],
+      "exports": null,
+      "todos": [
+        {
+          "line": 90,
+          "content": "xist(err) {",
+          "type": "NOTE"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 37.5,
+      "issues": [
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 43,
+          "description": "Usage of panic() detected"
+        },
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 50,
+          "description": "Usage of panic() detected"
+        },
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 61,
+          "description": "Usage of panic() detected"
+        },
+        {
+          "type": "panic_usage",
+          "severity": "warning",
+          "line": 68,
+          "description": "Usage of panic() detected"
+        }
+      ],
+      "metrics": {}
+    },
+    "cmd\\impz\\app.go": {
+      "path": "cmd\\impz\\app.go",
+      "language": "Go",
+      "size": 1046,
+      "lines": 45,
+      "code_lines": 24,
+      "comment_lines": 12,
+      "blank_lines": 9,
+      "functions": 6,
+      "classes": 1,
+      "complexity": 2,
+      "last_modified": "2025-07-22T06:40:56.5074391+07:00",
+      "imports": [
+        "context"
+      ],
+      "exports": [
+        "App",
+        "NewApp"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 8.5,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\app\\layout.tsx": {
+      "path": "cmd\\impz\\frontend\\app\\layout.tsx",
+      "language": "TSX",
+      "size": 515,
+      "lines": 24,
+      "code_lines": 19,
+      "comment_lines": 1,
+      "blank_lines": 4,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-24T08:33:39.861652+07:00",
+      "imports": [
+        "",
+        ""
+      ],
+      "exports": [
+        "metadata"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.4,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\app\\page.tsx": {
+      "path": "cmd\\impz\\frontend\\app\\page.tsx",
+      "language": "TSX",
+      "size": 5791,
+      "lines": 114,
+      "code_lines": 107,
+      "comment_lines": 0,
+      "blank_lines": 7,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 7,
+      "last_modified": "2025-07-22T06:40:56.5256651+07:00",
+      "imports": [
+        ""
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 25.4,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\next-env.d.ts": {
+      "path": "cmd\\impz\\frontend\\next-env.d.ts",
+      "language": "TypeScript",
+      "size": 206,
+      "lines": 6,
+      "code_lines": 0,
+      "comment_lines": 4,
+      "blank_lines": 2,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 2,
+      "last_modified": "2025-07-24T08:31:12.8217135+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": [
+        {
+          "line": 4,
+          "content": "This file should not be edited",
+          "type": "NOTE"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 4.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\next.config.js": {
+      "path": "cmd\\impz\\frontend\\next.config.js",
+      "language": "JavaScript",
+      "size": 471,
+      "lines": 19,
+      "code_lines": 6,
+      "comment_lines": 8,
+      "blank_lines": 5,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-22T06:40:56.5308336+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 3.9000000000000004,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\postcss.config.js": {
+      "path": "cmd\\impz\\frontend\\postcss.config.js",
+      "language": "JavaScript",
+      "size": 82,
+      "lines": 7,
+      "code_lines": 6,
+      "comment_lines": 0,
+      "blank_lines": 1,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-22T06:40:56.5512599+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 2.7,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\tailwind.config.ts": {
+      "path": "cmd\\impz\\frontend\\tailwind.config.ts",
+      "language": "TypeScript",
+      "size": 288,
+      "lines": 12,
+      "code_lines": 7,
+      "comment_lines": 3,
+      "blank_lines": 2,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-24T08:25:40.4520851+07:00",
+      "imports": [
+        ""
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 3.2,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.d.ts": {
+      "path": "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.d.ts",
+      "language": "TypeScript",
+      "size": 166,
+      "lines": 5,
+      "code_lines": 1,
+      "comment_lines": 2,
+      "blank_lines": 2,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-25T10:48:54.0493744+07:00",
+      "imports": null,
+      "exports": [
+        "Greet"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 2.5,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.js": {
+      "path": "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.js",
+      "language": "JavaScript",
+      "size": 212,
+      "lines": 8,
+      "code_lines": 3,
+      "comment_lines": 3,
+      "blank_lines": 2,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-25T10:48:54.0488627+07:00",
+      "imports": null,
+      "exports": [
+        "Greet"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 2.8,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.d.ts": {
+      "path": "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.d.ts",
+      "language": "TypeScript",
+      "size": 11115,
+      "lines": 249,
+      "code_lines": 72,
+      "comment_lines": 120,
+      "blank_lines": 57,
+      "functions": 53,
+      "classes": 0,
+      "complexity": 12,
+      "last_modified": "2025-07-25T10:48:54.042375+07:00",
+      "imports": null,
+      "exports": [
+        "EventsEmit",
+        "EventsOn",
+        "EventsOnMultiple",
+        "EventsOnce",
+        "EventsOff",
+        "EventsOffAll",
+        "LogPrint",
+        "LogTrace",
+        "LogDebug",
+        "LogError",
+        "LogFatal",
+        "LogInfo",
+        "LogWarning",
+        "WindowReload",
+        "WindowReloadApp",
+        "WindowSetAlwaysOnTop",
+        "WindowSetSystemDefaultTheme",
+        "WindowSetLightTheme",
+        "WindowSetDarkTheme",
+        "WindowCenter",
+        "WindowSetTitle",
+        "WindowFullscreen",
+        "WindowUnfullscreen",
+        "WindowIsFullscreen",
+        "WindowSetSize",
+        "WindowGetSize",
+        "WindowSetMaxSize",
+        "WindowSetMinSize",
+        "WindowSetPosition",
+        "WindowGetPosition",
+        "WindowHide",
+        "WindowShow",
+        "WindowMaximise",
+        "WindowToggleMaximise",
+        "WindowUnmaximise",
+        "WindowIsMaximised",
+        "WindowMinimise",
+        "WindowUnminimise",
+        "WindowIsMinimised",
+        "WindowIsNormal",
+        "WindowSetBackgroundColour",
+        "ScreenGetAll",
+        "BrowserOpenURL",
+        "Environment",
+        "Quit",
+        "Hide",
+        "Show",
+        "ClipboardGetText",
+        "ClipboardSetText",
+        "OnFileDrop",
+        "OnFileDropOff",
+        "CanResolveFilePaths",
+        "ResolveFilePaths"
+      ],
+      "todos": [
+        {
+          "line": 67,
+          "content": "](https://wails.io/docs/reference/runtime/log#logdebug)",
+          "type": "BUG"
+        },
+        {
+          "line": 68,
+          "content": "` log level.",
+          "type": "BUG"
+        },
+        {
+          "line": 69,
+          "content": "(message: string): void;",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 48.900000000000006,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.js": {
+      "path": "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.js",
+      "language": "JavaScript",
+      "size": 5539,
+      "lines": 238,
+      "code_lines": 157,
+      "comment_lines": 28,
+      "blank_lines": 53,
+      "functions": 52,
+      "classes": 0,
+      "complexity": 4,
+      "last_modified": "2025-07-25T10:48:54.0429456+07:00",
+      "imports": null,
+      "exports": [
+        "LogPrint",
+        "LogTrace",
+        "LogDebug",
+        "LogInfo",
+        "LogWarning",
+        "LogError",
+        "LogFatal",
+        "EventsOnMultiple",
+        "EventsOn",
+        "EventsOff",
+        "EventsOnce",
+        "EventsEmit",
+        "WindowReload",
+        "WindowReloadApp",
+        "WindowSetAlwaysOnTop",
+        "WindowSetSystemDefaultTheme",
+        "WindowSetLightTheme",
+        "WindowSetDarkTheme",
+        "WindowCenter",
+        "WindowSetTitle",
+        "WindowFullscreen",
+        "WindowUnfullscreen",
+        "WindowIsFullscreen",
+        "WindowGetSize",
+        "WindowSetSize",
+        "WindowSetMaxSize",
+        "WindowSetMinSize",
+        "WindowSetPosition",
+        "WindowGetPosition",
+        "WindowHide",
+        "WindowShow",
+        "WindowMaximise",
+        "WindowToggleMaximise",
+        "WindowUnmaximise",
+        "WindowIsMaximised",
+        "WindowMinimise",
+        "WindowUnminimise",
+        "WindowSetBackgroundColour",
+        "ScreenGetAll",
+        "WindowIsMinimised",
+        "WindowIsNormal",
+        "BrowserOpenURL",
+        "Environment",
+        "Quit",
+        "Hide",
+        "Show",
+        "ClipboardGetText",
+        "ClipboardSetText",
+        "OnFileDrop",
+        "OnFileDropOff",
+        "CanResolveFilePaths",
+        "ResolveFilePaths"
+      ],
+      "todos": [
+        {
+          "line": 19,
+          "content": "(message) {",
+          "type": "BUG"
+        },
+        {
+          "line": 20,
+          "content": "(message);",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 31.8,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\impz\\main.go": {
+      "path": "cmd\\impz\\main.go",
+      "language": "Go",
+      "size": 2165,
+      "lines": 88,
+      "code_lines": 73,
+      "comment_lines": 7,
+      "blank_lines": 8,
+      "functions": 1,
+      "classes": 0,
+      "complexity": 4,
+      "last_modified": "2025-07-22T06:40:56.5131206+07:00",
+      "imports": [
+        "embed"
+      ],
+      "exports": null,
+      "todos": [
+        {
+          "line": 45,
+          "content": ",",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 16.8,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\search\\consts.go": {
+      "path": "cmd\\search\\consts.go",
+      "language": "Go",
+      "size": 9076,
+      "lines": 203,
+      "code_lines": 201,
+      "comment_lines": 0,
+      "blank_lines": 2,
+      "functions": 0,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-28T22:31:33.7593161+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 22.3,
+      "issues": [],
+      "metrics": {}
+    },
+    "cmd\\search\\main.go": {
+      "path": "cmd\\search\\main.go",
+      "language": "Go",
+      "size": 10634,
+      "lines": 358,
+      "code_lines": 288,
+      "comment_lines": 20,
+      "blank_lines": 50,
+      "functions": 7,
+      "classes": 3,
+      "complexity": 58,
+      "last_modified": "2025-07-28T22:31:31.3529605+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "Result",
+        "Agent",
+        "NewAgent",
+        "Scraper"
+      ],
+      "todos": [
+        {
+          "line": 156,
+          "content": "ging",
+          "type": "BUG"
+        },
+        {
+          "line": 167,
+          "content": "ging",
+          "type": "BUG"
+        },
+        {
+          "line": 168,
+          "content": ", fmt.Sprintf(\"Page has search form: %t\", doc.Find(\"form[action*='search']\").Length() \u003e 0))",
+          "type": "BUG"
+        },
+        {
+          "line": 169,
+          "content": ", fmt.Sprintf(\"Page has Google branding: %t\", doc.Find(\"[alt*='Google'], #logo\").Length() \u003e 0))",
+          "type": "BUG"
+        },
+        {
+          "line": 170,
+          "content": ", fmt.Sprintf(\"Page total divs: %d\", doc.Find(\"div\").Length()))",
+          "type": "BUG"
+        },
+        {
+          "line": 191,
+          "content": ", fmt.Sprintf(\"Selector '%s' found 0 elements\", selector))",
+          "type": "BUG"
+        },
+        {
+          "line": 196,
+          "content": "ging - log more specific elements",
+          "type": "BUG"
+        },
+        {
+          "line": 197,
+          "content": ", fmt.Sprintf(\"Found \u003ca\u003e tags: %d\", doc.Find(\"a\").Length()))",
+          "type": "BUG"
+        },
+        {
+          "line": 198,
+          "content": ", fmt.Sprintf(\"Found \u003ch3\u003e tags: %d\", doc.Find(\"h3\").Length()))",
+          "type": "BUG"
+        },
+        {
+          "line": 199,
+          "content": ", fmt.Sprintf(\"Found search-related divs: %d\", doc.Find(\"div[id*='search'], div[class*='search']\").Length()))",
+          "type": "BUG"
+        },
+        {
+          "line": 305,
+          "content": ", fmt.Sprintf(\"Skipped invalid link: '%s'\", link))",
+          "type": "BUG"
+        },
+        {
+          "line": 353,
+          "content": "ging",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 151.8,
+      "issues": [
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 30,
+          "description": "Line is 122 characters long (\u003e120)"
+        },
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 31,
+          "description": "Line is 121 characters long (\u003e120)"
+        },
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 32,
+          "description": "Line is 128 characters long (\u003e120)"
+        },
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 33,
+          "description": "Line is 124 characters long (\u003e120)"
+        },
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 35,
+          "description": "Line is 122 characters long (\u003e120)"
+        },
+        {
+          "type": "long_line",
+          "severity": "warning",
+          "line": 199,
+          "description": "Line is 131 characters long (\u003e120)"
+        }
+      ],
+      "metrics": {}
+    },
+    "pkg\\dsa\\doublely_linked_list\\list.go": {
+      "path": "pkg\\dsa\\doublely_linked_list\\list.go",
+      "language": "Go",
+      "size": 3241,
+      "lines": 187,
+      "code_lines": 165,
+      "comment_lines": 1,
+      "blank_lines": 21,
+      "functions": 14,
+      "classes": 0,
+      "complexity": 25,
+      "last_modified": "2025-07-26T19:46:33.8386518+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 68.7,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\doublely_linked_list\\node.go": {
+      "path": "pkg\\dsa\\doublely_linked_list\\node.go",
+      "language": "Go",
+      "size": 418,
+      "lines": 26,
+      "code_lines": 21,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 4,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T18:28:12.2833427+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\linked_list\\list.go": {
+      "path": "pkg\\dsa\\linked_list\\list.go",
+      "language": "Go",
+      "size": 3393,
+      "lines": 198,
+      "code_lines": 170,
+      "comment_lines": 4,
+      "blank_lines": 24,
+      "functions": 15,
+      "classes": 0,
+      "complexity": 25,
+      "last_modified": "2025-07-26T19:24:44.6159027+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 69.8,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\linked_list\\node.go": {
+      "path": "pkg\\dsa\\linked_list\\node.go",
+      "language": "Go",
+      "size": 330,
+      "lines": 22,
+      "code_lines": 17,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 3,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T17:01:42.2834773+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.2,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\queue\\node.go": {
+      "path": "pkg\\dsa\\queue\\node.go",
+      "language": "Go",
+      "size": 325,
+      "lines": 22,
+      "code_lines": 17,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 3,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T20:06:50.1665641+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.2,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\queue\\queue.go": {
+      "path": "pkg\\dsa\\queue\\queue.go",
+      "language": "Go",
+      "size": 868,
+      "lines": 56,
+      "code_lines": 50,
+      "comment_lines": 0,
+      "blank_lines": 6,
+      "functions": 6,
+      "classes": 0,
+      "complexity": 6,
+      "last_modified": "2025-07-26T20:11:00.9396621+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 17.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\stack\\node.go": {
+      "path": "pkg\\dsa\\stack\\node.go",
+      "language": "Go",
+      "size": 325,
+      "lines": 22,
+      "code_lines": 17,
+      "comment_lines": 0,
+      "blank_lines": 5,
+      "functions": 3,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T19:52:13.6720037+07:00",
+      "imports": null,
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 4.2,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\stack\\stack.go": {
+      "path": "pkg\\dsa\\stack\\stack.go",
+      "language": "Go",
+      "size": 1088,
+      "lines": 70,
+      "code_lines": 60,
+      "comment_lines": 1,
+      "blank_lines": 9,
+      "functions": 6,
+      "classes": 0,
+      "complexity": 6,
+      "last_modified": "2025-07-26T20:00:03.071063+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 19,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\test\\doublely_linked_list_test.go": {
+      "path": "pkg\\dsa\\test\\doublely_linked_list_test.go",
+      "language": "Go",
+      "size": 1921,
+      "lines": 86,
+      "code_lines": 70,
+      "comment_lines": 0,
+      "blank_lines": 16,
+      "functions": 9,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T19:47:56.5561753+07:00",
+      "imports": [
+        "testing"
+      ],
+      "exports": [
+        "TestDoublelyLinkedList",
+        "TestDoublelyLinkedListAppend",
+        "TestDoublelyLinkedListPop",
+        "TestDoublelyLinkedListPrepend",
+        "TestDoublelyLinkedListRemoveFrist",
+        "TestDoublelyLinkedListGet",
+        "TestDoublelyLinkedListSet",
+        "TestDoublelyLinkedListInsert",
+        "TestDoublelyLinkedListRemove"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 10.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\dsa\\test\\linked_list_test.go": {
+      "path": "pkg\\dsa\\test\\linked_list_test.go",
+      "language": "Go",
+      "size": 2046,
+      "lines": 99,
+      "code_lines": 79,
+      "comment_lines": 0,
+      "blank_lines": 20,
+      "functions": 10,
+      "classes": 0,
+      "complexity": 1,
+      "last_modified": "2025-07-26T19:30:24.8283127+07:00",
+      "imports": [
+        "testing"
+      ],
+      "exports": [
+        "TestLinkedList",
+        "TestLinkedListAppend",
+        "TestLinkedListPop",
+        "TestLinkedListPrepend",
+        "TestLinkedListRemoveFrist",
+        "TestLinkedListGet",
+        "TestLinkedListSet",
+        "TestLinkedListInsert",
+        "TestLinkedListRemove",
+        "TestReverse"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 11.9,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\log\\console.go": {
+      "path": "pkg\\log\\console.go",
+      "language": "Go",
+      "size": 1908,
+      "lines": 76,
+      "code_lines": 64,
+      "comment_lines": 4,
+      "blank_lines": 8,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 14,
+      "last_modified": "2025-07-28T21:23:20.9006995+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": [
+        {
+          "line": 61,
+          "content": "",
+          "type": "BUG"
+        },
+        {
+          "line": 62,
+          "content": ", log)",
+          "type": "BUG"
+        },
+        {
+          "line": 74,
+          "content": "= \"\\033[35m%s\\033[0m\"   // Magenta",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 35.6,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\log\\file.go": {
+      "path": "pkg\\log\\file.go",
+      "language": "Go",
+      "size": 1475,
+      "lines": 63,
+      "code_lines": 51,
+      "comment_lines": 4,
+      "blank_lines": 8,
+      "functions": 1,
+      "classes": 1,
+      "complexity": 11,
+      "last_modified": "2025-07-16T10:54:15.7869319+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": null,
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 28.3,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\log\\log.go": {
+      "path": "pkg\\log\\log.go",
+      "language": "Go",
+      "size": 1612,
+      "lines": 70,
+      "code_lines": 63,
+      "comment_lines": 0,
+      "blank_lines": 7,
+      "functions": 2,
+      "classes": 1,
+      "complexity": 4,
+      "last_modified": "2025-07-16T10:54:51.4154725+07:00",
+      "imports": [
+        "path/filepath"
+      ],
+      "exports": [
+        "LogType",
+        "Log",
+        "NewLog"
+      ],
+      "todos": [
+        {
+          "line": 28,
+          "content": "LogType = \"DEBUG\"   // Information step by step",
+          "type": "BUG"
+        }
+      ],
+      "dependencies": null,
+      "hotspot_score": 15,
+      "issues": [],
+      "metrics": {}
+    },
+    "pkg\\log\\logger.go": {
+      "path": "pkg\\log\\logger.go",
+      "language": "Go",
+      "size": 1199,
+      "lines": 50,
+      "code_lines": 43,
+      "comment_lines": 0,
+      "blank_lines": 7,
+      "functions": 1,
+      "classes": 1,
+      "complexity": 4,
+      "last_modified": "2025-07-16T19:06:56.1069999+07:00",
+      "imports": [
+        "fmt"
+      ],
+      "exports": [
+        "Logger",
+        "LoggerInt"
+      ],
+      "todos": null,
+      "dependencies": null,
+      "hotspot_score": 13,
+      "issues": [],
+      "metrics": {}
+    }
+  },
+  "root_dir": ".",
+  "statistics": {
+    "total_files": 55,
+    "total_lines": 4094,
+    "total_code_lines": 3200,
+    "total_functions": 273,
+    "total_classes": 35,
+    "average_complexity": 7.4,
+    "language_breakdown": {
+      "Go": 45,
+      "JavaScript": 4,
+      "TSX": 2,
+      "TypeScript": 4
+    },
+    "hotspots": [
+      {
+        "path": "cmd\\search\\main.go",
+        "score": 151.8
+      },
+      {
+        "path": "cmd\\analyser\\internal\\archaeologist\\code_archaeologist.go",
+        "score": 96.6
+      },
+      {
+        "path": "pkg\\dsa\\linked_list\\list.go",
+        "score": 69.8
+      },
+      {
+        "path": "pkg\\dsa\\doublely_linked_list\\list.go",
+        "score": 68.7
+      }
+    ],
+    "refactoring_targets": [
+      {
+        "path": "cmd\\search\\consts.go",
+        "reasons": [
+          "Large file"
+        ],
+        "priority": "medium",
+        "complexity": 1,
+        "line_count": 203
+      },
+      {
+        "path": "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.js",
+        "reasons": [
+          "Large file"
+        ],
+        "priority": "medium",
+        "complexity": 4,
+        "line_count": 238
+      },
+      {
+        "path": "pkg\\dsa\\linked_list\\list.go",
+        "reasons": [
+          "High complexity"
+        ],
+        "priority": "high",
+        "complexity": 25,
+        "line_count": 198
+      },
+      {
+        "path": "pkg\\log\\console.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 14,
+        "line_count": 76
+      },
+      {
+        "path": "cmd\\analyser\\internal\\git\\git_rule.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 15,
+        "line_count": 107
+      },
+      {
+        "path": "cmd\\analyser\\internal\\analyzer\\javascript_analyzer.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 16,
+        "line_count": 112
+      },
+      {
+        "path": "cmd\\analyser\\internal\\analyzer\\php_analyzer.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 13,
+        "line_count": 89
+      },
+      {
+        "path": "cmd\\search\\main.go",
+        "reasons": [
+          "High complexity",
+          "Large file",
+          "Multiple issues"
+        ],
+        "priority": "high",
+        "complexity": 58,
+        "line_count": 358
+      },
+      {
+        "path": "cmd\\analyser\\internal\\analyzer\\analyzer.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 7,
+        "line_count": 131
+      },
+      {
+        "path": "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.d.ts",
+        "reasons": [
+          "Large file"
+        ],
+        "priority": "medium",
+        "complexity": 12,
+        "line_count": 249
+      },
+      {
+        "path": "cmd\\analyser\\internal\\archaeologist\\code_archaeologist.go",
+        "reasons": [
+          "High complexity",
+          "Large file"
+        ],
+        "priority": "high",
+        "complexity": 36,
+        "line_count": 246
+      },
+      {
+        "path": "cmd\\filecrypt\\encrypt\\encrypt.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 17,
+        "line_count": 93
+      },
+      {
+        "path": "cmd\\filecrypt\\main.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 14,
+        "line_count": 95
+      },
+      {
+        "path": "pkg\\dsa\\doublely_linked_list\\list.go",
+        "reasons": [
+          "High complexity"
+        ],
+        "priority": "high",
+        "complexity": 25,
+        "line_count": 187
+      },
+      {
+        "path": "cmd\\domain-checker\\main.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 12,
+        "line_count": 77
+      },
+      {
+        "path": "cmd\\impz\\frontend\\app\\page.tsx",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 7,
+        "line_count": 114
+      },
+      {
+        "path": "cmd\\analyser\\internal\\analyzer\\go_analyzer.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 11,
+        "line_count": 84
+      },
+      {
+        "path": "cmd\\file-drive\\p2p\\tcp_transport.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 14,
+        "line_count": 109
+      },
+      {
+        "path": "pkg\\log\\file.go",
+        "reasons": null,
+        "priority": "medium",
+        "complexity": 11,
+        "line_count": 63
+      }
+    ],
+    "dependency_graph": {
+      "cmd\\analyser\\internal\\analyzer\\analyzer.go": [
+        "regexp"
+      ],
+      "cmd\\analyser\\internal\\analyzer\\dart_analyzer.go": [
+        "strings"
+      ],
+      "cmd\\analyser\\internal\\analyzer\\file.go": [
+        "time"
+      ],
+      "cmd\\analyser\\internal\\analyzer\\go_analyzer.go": [
+        "fmt"
+      ],
+      "cmd\\analyser\\internal\\analyzer\\javascript_analyzer.go": [
+        "path/filepath"
+      ],
+      "cmd\\analyser\\internal\\analyzer\\php_analyzer.go": [
+        "strings"
+      ],
+      "cmd\\analyser\\internal\\archaeologist\\code_archaeologist.go": [
+        "encoding/json"
+      ],
+      "cmd\\analyser\\internal\\archaeologist\\statistics.go": [
+        "github.com/Long-Software/lark/cmd/analyser/internal/hotspot"
+      ],
+      "cmd\\analyser\\internal\\git\\git_rule.go": [
+        "bufio"
+      ],
+      "cmd\\analyser\\internal\\hotspot\\hotspot.go": null,
+      "cmd\\analyser\\internal\\utils\\log.go": [
+        "github.com/Long-Software/lark/pkg/log"
+      ],
+      "cmd\\analyser\\main.go": [
+        "fmt"
+      ],
+      "cmd\\domain-checker\\main.go": [
+        "fmt"
+      ],
+      "cmd\\file-drive\\file\\key_path.go": [
+        "fmt"
+      ],
+      "cmd\\file-drive\\file\\path_transform.go": [
+        "crypto/sha1"
+      ],
+      "cmd\\file-drive\\file\\store.go": [
+        "bytes"
+      ],
+      "cmd\\file-drive\\main.go": [
+        "fmt"
+      ],
+      "cmd\\file-drive\\p2p\\encoder.go": [
+        "encoding/gob"
+      ],
+      "cmd\\file-drive\\p2p\\message.go": [
+        "net"
+      ],
+      "cmd\\file-drive\\p2p\\tcp_peer.go": [
+        "fmt"
+      ],
+      "cmd\\file-drive\\p2p\\tcp_transport.go": [
+        "errors"
+      ],
+      "cmd\\file-drive\\p2p\\transport.go": null,
+      "cmd\\file-drive\\test\\store_test.go": [
+        "bytes"
+      ],
+      "cmd\\file-drive\\test\\tcp_transport_test.go": [
+        "testing"
+      ],
+      "cmd\\file-drive\\utils\\log.go": [
+        "github.com/Long-Software/lark/pkg/log"
+      ],
+      "cmd\\filecrypt\\encrypt\\encrypt.go": [
+        "crypto/aes"
+      ],
+      "cmd\\filecrypt\\main.go": [
+        "bytes"
+      ],
+      "cmd\\impz\\app.go": [
+        "context"
+      ],
+      "cmd\\impz\\frontend\\app\\layout.tsx": [
+        "",
+        ""
+      ],
+      "cmd\\impz\\frontend\\app\\page.tsx": [
+        ""
+      ],
+      "cmd\\impz\\frontend\\next-env.d.ts": null,
+      "cmd\\impz\\frontend\\next.config.js": null,
+      "cmd\\impz\\frontend\\postcss.config.js": null,
+      "cmd\\impz\\frontend\\tailwind.config.ts": [
+        ""
+      ],
+      "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.d.ts": null,
+      "cmd\\impz\\frontend\\wailsjs\\go\\main\\App.js": null,
+      "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.d.ts": null,
+      "cmd\\impz\\frontend\\wailsjs\\runtime\\runtime.js": null,
+      "cmd\\impz\\main.go": [
+        "embed"
+      ],
+      "cmd\\search\\consts.go": null,
+      "cmd\\search\\main.go": [
+        "fmt"
+      ],
+      "pkg\\dsa\\doublely_linked_list\\list.go": [
+        "fmt"
+      ],
+      "pkg\\dsa\\doublely_linked_list\\node.go": null,
+      "pkg\\dsa\\linked_list\\list.go": [
+        "fmt"
+      ],
+      "pkg\\dsa\\linked_list\\node.go": null,
+      "pkg\\dsa\\queue\\node.go": null,
+      "pkg\\dsa\\queue\\queue.go": null,
+      "pkg\\dsa\\stack\\node.go": null,
+      "pkg\\dsa\\stack\\stack.go": [
+        "fmt"
+      ],
+      "pkg\\dsa\\test\\doublely_linked_list_test.go": [
+        "testing"
+      ],
+      "pkg\\dsa\\test\\linked_list_test.go": [
+        "testing"
+      ],
+      "pkg\\log\\console.go": [
+        "fmt"
+      ],
+      "pkg\\log\\file.go": [
+        "fmt"
+      ],
+      "pkg\\log\\log.go": [
+        "path/filepath"
+      ],
+      "pkg\\log\\logger.go": [
+        "fmt"
+      ]
+    }
+  },
+  "timestamp": "2025-07-28T22:31:35.8508723+07:00"
+}

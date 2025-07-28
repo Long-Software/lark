@@ -43,7 +43,7 @@ func (c *consoleLogger) NewLog(logType LogType, message string) error {
 		}
 	}
 
-	bd.WriteString(fmt.Sprintf(": %s\n",entry.message))
+	bd.WriteString(fmt.Sprintf("%s\n",entry.message))
 	fmt.Print(bd.String())
 	return nil
 }
