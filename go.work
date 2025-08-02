@@ -3,11 +3,11 @@ go 1.23.2
 use (
 	./cmd/analyser
 	./cmd/domain-checker
-	./cmd/file-drive
 	./cmd/filecrypt
+	./cmd/finn
 	./cmd/impz
-	./cmd/search
-	./pkg/dsa
 
+	./pkg/dsa
+	./pkg/env
 	./pkg/log
 )
