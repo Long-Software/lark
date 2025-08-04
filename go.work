@@ -6,6 +6,7 @@ use (
 	./cmd/filecrypt
 	./cmd/finn
 	./cmd/impz
+	./pkg/color
 
 	./pkg/dsa
 	./pkg/env
