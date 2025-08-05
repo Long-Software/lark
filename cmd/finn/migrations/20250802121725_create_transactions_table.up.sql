@@ -14,12 +14,10 @@ CREATE TABLE transactions (
 
 CREATE INDEX idx_transactions_category_id ON transactions(category_id);
 
-
 CREATE TABLE monthly_budget_summary (
     month DATE PRIMARY KEY,
     total_amount DECIMAL(12,2)
 );
-
 
 INSERT INTO monthly_budget_summary (month, total_amount)
 SELECT
@@ -27,8 +25,6 @@ SELECT
     SUM(amount)
 FROM transactions
 GROUP BY month;
-
-DELIMITER //
 
 CREATE EVENT IF NOT EXISTS refresh_monthly_budget_summary
 ON SCHEDULE EVERY 1 DAY
@@ -41,6 +37,4 @@ BEGIN
         SUM(amount)
     FROM transactions
     GROUP BY month;
-END //
-
-DELIMITER ;
+END;

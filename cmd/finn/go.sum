@@ -1,5 +1,7 @@
 filippo.io/edwards25519 v1.1.0 h1:FNf4tywRC1HmFuKW5xopWpigGjJKiJSV0Cqo0cJWDaA=
 filippo.io/edwards25519 v1.1.0/go.mod h1:BxyFTGdWcka3PhytdK4V28tE5sGfRvvvRV7EaN4VDT4=
+github.com/Long-Software/lark/pkg/log v0.0.0-20250804085842-08af5de0107a h1:/UODY4lXAEwjazq1l7r0mcByXFM23d+x2NeGDeCzI2E=
+github.com/Long-Software/lark/pkg/log v0.0.0-20250804085842-08af5de0107a/go.mod h1:w5IpTLNZVoQvAUbL1a9AyQb6qH/TxRD85F9SB8KBv+w=
 github.com/bep/debounce v1.2.1 h1:v67fRdBA9UQu2NhLFXrSg0Brw7CexQekrBwDMM8bzeY=
 github.com/bep/debounce v1.2.1/go.mod h1:H8yggRPQKLUhUoqrJC1bO2xNya7vanpDl7xR3ISbCJ0=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

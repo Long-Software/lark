@@ -8,4 +8,5 @@ INSERT INTO categories (name) VALUES
   ('vehicle'),
   ('shopping'),
   ('entertainment'),
+  ('income'),
   ('others');

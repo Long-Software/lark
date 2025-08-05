@@ -1,10 +1,9 @@
 module Finn
 
-go 1.23.0
-
-toolchain go1.23.2
+go 1.23.2
 
 require (
+	github.com/Long-Software/lark/pkg/log v0.0.0-20250804085842-08af5de0107a
 	github.com/wailsapp/wails/v2 v2.10.2
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.30.1
