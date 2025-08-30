@@ -1,15 +1,22 @@
 package archaeologist
 
+/*
+#cgo LDFLAGS: -L. -lscanner
+#include <stdlib.h>
+
+int scan_directory(const char* root, char* output, int maxSize);
+*/
+import "C"
+
 import (
 	"encoding/json"
 	"fmt"
-	"io/fs"
 	"os"
 	"path/filepath"
-	"slices"
 	"sort"
 	"strings"
 	"time"
+	"unsafe"
 
 	anl "github.com/Long-Software/lark/cmd/analyser/internal/analyzer"
 	"github.com/Long-Software/lark/cmd/analyser/internal/hotspot"
@@ -55,20 +62,45 @@ func (ca *CodeArchaeologist) Excavate() error {
 }
 
 func (ca *CodeArchaeologist) scanDirectory(dir string) error {
-	return filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
-		if err != nil {
-			return err
-		}
+	bufferSize := 10 * 1024 * 1024 // 10 MB buffer
+	output := C.malloc(C.size_t(bufferSize))
+	defer C.free(output)
 
-		if d.IsDir() {
-			if slices.Contains(ca.Config.SkipDirectories, d.Name()) {
-				return filepath.SkipDir
-			}
-			return nil
-		}
+	cDir := C.CString(dir)
+	defer C.free(unsafe.Pointer(cDir))
 
-		return ca.analyzeFile(path)
-	})
+	ret := C.scan_directory(cDir, (*C.char)(output), C.int(bufferSize))
+	if ret < 0 {
+		return fmt.Errorf("C++ scanner error: %d", int(ret))
+	}
+
+	goStr := C.GoString((*C.char)(output))
+	files := strings.Split(goStr, "\n")
+
+	for _, file := range files {
+		if file == "" {
+			continue
+		}
+		if err := ca.analyzeFile(file); err != nil {
+			utils.Log.NewLog(log.WARNING, fmt.Sprintf("⚠️ failed to analyze: %s", file))
+		}
+	}
+
+	return nil
+	// return filepath.WalkDir(dir, func(path string, d fs.DirEntry, err error) error {
+	// 	if err != nil {
+	// 		return err
+	// 	}
+
+	// 	if d.IsDir() {
+	// 		if slices.Contains(ca.Config.SkipDirectories, d.Name()) {
+	// 			return filepath.SkipDir
+	// 		}
+	// 		return nil
+	// 	}
+
+	// 	return ca.analyzeFile(path)
+	// })
 }
 
 func (ca *CodeArchaeologist) analyzeFile(filePath string) error {

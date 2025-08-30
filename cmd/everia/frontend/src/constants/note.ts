@@ -1,0 +1,1 @@
+export const AUTO_SAVING_TIME = 3000 // 3s

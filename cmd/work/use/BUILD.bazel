@@ -1,0 +1,12 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "use",
+    srcs = ["use.go"],
+    importpath = "github.com/Long-Software/Sonality/services/work/use",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//pkg/consts:pkg_consts",
+        "//pkg/utils:pkg_utils",
+    ],
+)

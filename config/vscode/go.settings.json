@@ -1,0 +1,17 @@
+{
+  "files.exclude": {
+    "build": true,
+       "**/vendor": true,
+    "go.sum": true
+  },
+  "search.exclude": {
+    "build": true,
+    "**/vendor": true,
+    "go.sum": true
+  },
+  "files.watcherExclude": {
+    "build": true,
+    "**/vendor": true,
+    "go.sum": true
+  }
+}

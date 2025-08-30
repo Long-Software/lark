@@ -1,0 +1,14 @@
+{
+  "rest-client.environmentVariables": {
+    "$shared": {},
+    "prod": {
+      "api_url": "http://localhost/api",
+      "token": "1|ntWuBVzWfLFr9mrQu4yUPqD7BhyvMc4x7wwDZqhT0dea26f8"
+    },
+    "local": {
+      "base_url": "http://localhost:8000",
+      "api_url": "http://localhost:8000/api",
+      "token": "1|ntWuBVzWfLFr9mrQu4yUPqD7BhyvMc4x7wwDZqhT0dea26f8"
+    }
+  }
+}

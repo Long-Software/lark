@@ -1,0 +1,46 @@
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    // "build": true,
+    "frontend/.next": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true,
+    "frontend/*-lock.json": true,
+    "scripts": true,
+    "go.sum": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "build": true,
+    "frontend/.next": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true,
+    "frontend/*-lock.json": true,
+    "scripts": true,
+    "go.sum": true
+  },
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/.hg/store/**": true,
+    "**/.dart_tool": true,
+    "build": true,
+    "frontend/.next": true,
+    "frontend/dist": true,
+    "frontend/node_modules": true,
+    "frontend/*-lock.json": true,
+    "scripts": true,
+    "go.sum": true
+  },
+  "cSpell.words": [
+    "longslark",
+    "shadcn",
+    "wailsjs"
+  ]
+}

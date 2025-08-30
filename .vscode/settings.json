@@ -1,10 +1,5 @@
 {
   // GO
-
-  // Typescript
-  "typescript.format.enable": false,
-  "typescript.suggest.enabled": false,
-  "typescript.validate.enable": false,
   "git.enabled": false,
   "files.watcherExclude": {
     "**/.hg/store/**": true,
@@ -25,15 +20,10 @@
     "**/out/**": true,
     // Test
     "**/coverage/**": true,
-    // Javascript
-    "**/node_modules/**": true,
-    "**/.next/**": true,
     // GoLang
     "**/vendor/**": true,
     "**/go.sum": true,
     // "**/go.mod": true,
-    // Flutter
-    "**/apps/flutter/**": true,
     // Logs
     "**/logs/**": true,
     "**/*.log": true
@@ -54,13 +44,8 @@
     "**/out": true,
     // Test
     "**/coverage": true,
-    // Javascript
-    "**/.next/**": true,
-    "**/node_modules": true,
     // GoLang
     "**/vendor": true,
-    // Flutter
-    "apps/flutter/**": true,
     // Logs
     "**/logs": true
   },
@@ -84,13 +69,8 @@
     "**/out": true,
     // Test
     "**/coverage": true,
-    // Javascript
-    "**/.next": true,
-    "**/node_modules": true,
     // GoLang
     "**/vendor": true,
-    // Flutter
-    "apps/flutter/**": true,
     // Logs
     "**/logs": true
   },

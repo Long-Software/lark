@@ -1,0 +1,18 @@
+{
+  "extends": "@longslark/tsconfig/nextjs.json",
+  "compilerOptions": {
+    "paths": {
+      "@wailsjs/*": ["./wailsjs/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "./src/**/*.ts",
+    "./src/**/*.tsx",
+    "./wailsjs/**/*.ts",
+    ".next/types/**/*.ts",
+    "dist/types/**/*.ts"
+  ],
+  "exclude": ["node_modules"]
+}

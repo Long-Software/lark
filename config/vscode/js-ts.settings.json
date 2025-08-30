@@ -1,0 +1,24 @@
+{
+  "files.watcherExclude": {
+    "**/dist/**": true,
+    "**/build/**": true,
+    "**/out/**": true,
+    "**/node_modules/**": true,
+    "**/.next/**": true
+  },
+  "search.exclude": {
+    "**/dist": true,
+    "**/build": true,
+    "**/out": true,
+    "**/.next/**": true,
+    "**/node_modules": true
+  },
+  "files.exclude": {
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/out": true,
+    "**/.next": true,
+    "**/node_modules": true
+  }
+}
